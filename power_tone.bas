@@ -1,5 +1,4 @@
- ;Power Tone Script
- 
+;Power Tone Script using hsp3
 ;	hspda.dll header
 ;
 #packopt name "Power Tone"
@@ -145,7 +144,7 @@
 		cos1 = r0 / r1
 		sin1 = az / r1
 	}
-	az = ppv / (0.01 + ginfo_winy) ; ‹–ìŠp
+	az = ppv / (0.01 + ginfo_winy) ; ï¿½ï¿½ï¿½ï¿½p
 	GSm00 = sin0         : GSm10 = -cos0       ; : GSm20 =  0.0
 	GSm01 = cos0*cos1*az : GSm11 =  sin0*cos1*az : GSm21 = -sin1*az
 	GSm02 = cos0*sin1    : GSm12 =  sin0*sin1    : GSm22 =  cos1
@@ -180,7 +179,7 @@
 #deffunc d3line double ppx, double ppy, double ppz,  double ssx, double ssy, double ssz
 	d3vpos ssx, ssy, ssz ; , ex, ey, ez, ef
 	d3vpos ppx, ppy, ppz ; , dx, dy, dz, df
-	; ƒNƒŠƒbƒv•s—v
+	; ï¿½Nï¿½ï¿½ï¿½bï¿½vï¿½sï¿½v
 	if df & ef {
 		line dx, dy, ex, ey
 		return
@@ -255,18 +254,18 @@
 		mes pmsg
 	}
 	return
-#const	PCACHE_D	18				; k¬ƒLƒƒƒbƒVƒ… Å‘å’¼Œa
-#const	PTS_D		(PCACHE_D + 1) * PCACHE_D / 2	; ƒp[ƒeƒBƒNƒ‹ƒoƒbƒtƒ@ ’¼Œa
+#const	PCACHE_D	18				; ï¿½kï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½bï¿½Vï¿½ï¿½ ï¿½Å‘å’¼ï¿½a
+#const	PTS_D		(PCACHE_D + 1) * PCACHE_D / 2	; ï¿½pï¿½[ï¿½eï¿½Bï¿½Nï¿½ï¿½ï¿½oï¿½bï¿½tï¿½@ ï¿½ï¿½ï¿½a
 #const	PTS_DM1		(PTS_D - 1)			;  PTS_D - 1
-#const	TMP_R		PTS_D				; ƒp[ƒeƒBƒNƒ‹‰æ‘œì¬ƒXƒNƒŠ[ƒ“ ”¼Œa
-#const	TMP_D		TMP_R * 2			;  “¯ ’¼Œa // ªd3mkparticle ‚Ì‰æ¿/‘¬“xƒoƒ‰ƒ“ƒX‚É‘Š“–
+#const	TMP_R		PTS_D				; ï¿½pï¿½[ï¿½eï¿½Bï¿½Nï¿½ï¿½ï¿½æ‘œï¿½ì¬ï¿½Xï¿½Nï¿½ï¿½ï¿½[ï¿½ï¿½ ï¿½ï¿½ï¿½a
+#const	TMP_D		TMP_R * 2			;  ï¿½ï¿½ ï¿½ï¿½ï¿½a // ï¿½ï¿½d3mkparticle ï¿½Ì‰æ¿/ï¿½ï¿½ï¿½xï¿½oï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½É‘ï¿½ï¿½ï¿½
 #define global d3mkparticle(%1=0, %2=0, %3=0, %4=0, %5=ptcdef@d3m)  d3createptc %1, %2, %3, %4, %5
 #define global d3ldparticle(%1=0, %2=0, %3=0, %4=0, %5=1, %6=1)  tmp@d3m = %5 : d3createptc %1, %2, %3, %4, tmp@d3m, %6
 #deffunc d3createptc int ppi, int v02, int v03, int v04, array v05, int v06
 	b = ginfo_sel
 	x = PTS_D * ppi
 	if ppi >= ppi_max {
-		a = ppi + 4 ; Šg’£Œã‚Ì ppi_max (Å‘å pid)
+		a = ppi + 4 ; ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ ppi_max (ï¿½Å‘ï¿½ pid)
 		if SCR_TMP = 29 {
 			SCR_TMP = 27
 			SCR_PTC = 29
@@ -361,7 +360,7 @@
 #deffunc d3ribbonto double x1, double y1, double z1, double x2, double y2, double z2
 	pdx = dx, ex
 	pdy = dy, ey
-	a = ef & df ; ‘O‰ñ•`‰æƒtƒ‰ƒO
+	a = ef & df ; ï¿½Oï¿½ï¿½`ï¿½ï¿½tï¿½ï¿½ï¿½O
 	d3vpos x1, y1, z1 ; -> ef
 	d3vpos x2, y2, z2 ; -> df
 	if a & ef & df {
@@ -377,7 +376,7 @@
 			vy = aryy(cnt)
 			vz = aryz(cnt)
 			d3trans  vx, vy, vz
-			if df = 0 : break ; À•W•ÏŠ·”ÍˆÍŠO
+			if df = 0 : break ; ï¿½ï¿½ï¿½Wï¿½ÏŠï¿½ï¿½ÍˆÍŠO
 			pdx(cnt) = dx
 			pdy(cnt) = dy
 		loop
@@ -388,8 +387,8 @@
 		}
 		return
 	}
-	pc = div + 1	; ˆê•Ó‚Ì“_‚Ì”(point count)
-	fc = div * div	; •ªŠ„‚µ‚½–Ê‚Ì”(face count)
+	pc = div + 1	; ï¿½ï¿½Ó‚Ì“_ï¿½Ìï¿½(point count)
+	fc = div * div	; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê‚Ìï¿½(face count)
 	repeat pc * pc
 		x = cnt\pc
 		y = cnt/pc
@@ -450,7 +449,7 @@
 #endif
  
  
-	;ƒƒCƒ“ƒEƒBƒ“ƒhƒE
+	;ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½E
 	scx01 = 800
 	scy01 = 500
 	scid01 = 0
@@ -462,7 +461,7 @@
 	fps03 = 0
 	frame_count = 0
 	
-	fon = "MSƒSƒVƒbƒN"
+	fon = "MSï¿½Sï¿½Vï¿½bï¿½N"
 	
 	fas =0.85
 	#define system_name "power tone"
@@ -505,7 +504,7 @@
 	color 0,0,255 : boxf
 	buffer 9
 	shadow = 18.
-	repeat ;Å‰‚ÌƒZƒbƒeƒBƒ“ƒO
+	repeat ;ï¿½Åï¿½ï¿½ÌƒZï¿½bï¿½eï¿½Bï¿½ï¿½ï¿½O
 	flag += 1
 	if flag > 2 : fobi*=fas
 	if flag > 0{ 
@@ -622,7 +621,7 @@
 	Fkp_bf = double(gettime(7))
 	Fkpa = double(gettime(7))
 	
-	;Ä¶
+	;ï¿½Äï¿½
 	pflag = 0
 	ptime = 1
 	ptflag1 = 0
@@ -707,10 +706,10 @@
 	gsel scid01
 			pos 210,470
 	objsize 20,12
-	button gosub "©",*left01
+	button gosub "ï¿½ï¿½",*left01
 	pos 270,470
 	objsize 20,12
-	button gosub "¨",*right01
+	button gosub "ï¿½ï¿½",*right01
 	pos 10,50
 	objsize 100,25
 	button gosub"file",*files
@@ -718,10 +717,10 @@
 	input tempo,100,20
 		pos scx01-80,scy01-30
 	objsize 15,15
-	button gosub"«",*up
+	button gosub"ï¿½ï¿½",*up
 	pos scx01-30,scy01-30
 	objsize 15,15
-	button gosub"ª",*down
+	button gosub"ï¿½ï¿½",*down
 	
 		pos 8,scy01-60
 	objsize 60,20
@@ -926,7 +925,7 @@
 	pos 136+((ptime-stpart)*20),40.+cos(0.1*cnt)*5.
 	font fon,10,1
 	color 255,255,255
-	if 120<144+((ptime-stpart)*20) : mes "¥"
+	if 120<144+((ptime-stpart)*20) : mes "ï¿½ï¿½"
 	if ptime+1>max_stpart : ptime = 1 : pflag = 0 {
 			sed = 0
 	repeat parth
@@ -1040,7 +1039,7 @@ pas = 0
 			if vol2(x,y,pars)!vol1(x,y,pars) : if last(y,pars) = 1 : vol2(x,y,pars)=vol1(x,y,pars)
 			if last(y,pars) = 0 : if vol2(x,y,pars)!vol1(x,y,pars):vol2(x,y,pars)-=pl(x,y,pars) : ds_vol int(dam+(y+1)+pars),vol2(x,y,pars)*2 : last(y,pars) = 1
 			
-			if vol2(x,y,pars)<0 : ds_stop int(dam+(y+1)+pars) : vol2(x,y,pars) = vol1(x,y,pars) ;“r’†‚ÅŸ‚Ì‚â‚Â‚ªØ‚ê‚Ä‚µ‚Ü‚¤B
+			if vol2(x,y,pars)<0 : ds_stop int(dam+(y+1)+pars) : vol2(x,y,pars) = vol1(x,y,pars) ;ï¿½rï¿½ï¿½ï¿½Åï¿½ï¿½Ì‚ï¿½Â‚ï¿½ï¿½Ø‚ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½B
 			x-
 			loop
 			y-
@@ -1216,7 +1215,7 @@ if mousex>scx01-90 : if mousex<scx01-10 : if mousey>30 * (parth+1)-partpos : if 
 	
 	
 	if cnt = 25 : ds_stat p1: if stat!1 : ds_getf (selected-1): ds_setf (selected-1),partbs(selected-1)*2+(partbs(selected-1)/26*1) :keyflag = 1 : ds_play selected-1
-	if cnt = 26 : ds_stat p1: if stat!1 : ds_getf (selected-1): ds_setf (selected-1),partbs(selected-1)*2+(partbs(selected-1)/10*2) :keyflag = 1 : ds_play selected-1 ;‚â‚è‚©‚¯
+	if cnt = 26 : ds_stat p1: if stat!1 : ds_getf (selected-1): ds_setf (selected-1),partbs(selected-1)*2+(partbs(selected-1)/10*2) :keyflag = 1 : ds_play selected-1 ;ï¿½ï¿½è‚©ï¿½ï¿½
 	if cnt = 27 : ds_stat p1: if stat!1 : ds_getf (selected-1): ds_setf (selected-1),partbs(selected-1)*2+(partbs(selected-1)/9*3) :keyflag = 1 : ds_play selected-1
 	if cnt = 28 : ds_stat p1: if stat!1 : ds_getf (selected-1): ds_setf (selected-1),partbs(selected-1)*2+(partbs(selected-1)/8*4) :keyflag = 1 : ds_play selected-1
 	if cnt = 29 : ds_stat p1: if stat!1 : ds_getf (selected-1): ds_setf (selected-1),partbs(selected-1)*2+(partbs(selected-1)/8*5) :keyflag = 1 : ds_play selected-1
@@ -1447,10 +1446,10 @@ sed = 0
 		clrobj
 			pos 210,470
 	objsize 20,12
-	button gosub "©",*left01
+	button gosub "ï¿½ï¿½",*left01
 	pos 270,470
 	objsize 20,12
-	button gosub "¨",*right01
+	button gosub "ï¿½ï¿½",*right01
 	pos 10,50
 	objsize 100,25
 	button gosub"file",*files
@@ -1458,10 +1457,10 @@ sed = 0
 	input tempo,100,20
 		pos scx01-80,scy01-30
 	objsize 15,15
-	button gosub"«",*up
+	button gosub"ï¿½ï¿½",*up
 	pos scx01-30,scy01-30
 	objsize 15,15
-	button gosub"ª",*down
+	button gosub"ï¿½ï¿½",*down
 	
 		pos 8,scy01-60
 	objsize 60,20
